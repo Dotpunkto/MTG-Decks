@@ -1,8 +1,18 @@
 ﻿@page "/CardList"
 @using MTG_Decks.Shared.Model
+@inject HttpClient Http
 
 <h3>Component1</h3>
 
+<button @onclick="@test">test</button>
+
 @code {
-    User user = new User();
+    public async void test()
+    {
+
+        Console.WriteLine("coucou");
+        Card card = await Http.GetFromJsonAsync<Card>("https://api.magicthegathering.io/v1/cards");
+        Console.WriteLine(card);
+    }
+
 }
