@@ -1,27 +1,15 @@
 ﻿<div class="top-row pl-4 navbar navbar-dark">
-    <a class="navbar-brand" href="">MTG_Decks</a>
+    <a class="navbar-brand" href="">MTG Decks</a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
 </div>
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <ul class="nav flex-column">
+    <ul class="top-row nav flex-row">
         <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
+            <NavLink class="nav-link" href="CardList">Cards List</NavLink>
         </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="CardList">
-                <span class="oi oi-plus" aria-hidden="true"></span> Card List
-            </NavLink>
-        </li>
-        @*<li class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </li>*@
     </ul>
 </div>
 

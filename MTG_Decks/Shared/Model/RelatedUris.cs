@@ -2,9 +2,9 @@ namespace MTG_Decks.Shared.Model
 {
     public class RelatedUris
     {
-        public string gatherer { get; set; }
-        public string tcgplayer_decks { get; set; }
-        public string edhrec { get; set; }
-        public string mtgtop8 { get; set; }
+        public string Gatherer { get; set; }
+        public string Tcgplayer_decks { get; set; }
+        public string Edhrec { get; set; }
+        public string Mtgtop8 { get; set; }
     }
 }

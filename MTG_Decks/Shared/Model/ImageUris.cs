@@ -2,11 +2,11 @@ namespace MTG_Decks.Shared.Model
 {
     public class ImageUris
     {
-        public string small { get; set; }
-        public string normal { get; set; }
-        public string large { get; set; }
-        public string png { get; set; }
-        public string art_crop { get; set; }
-        public string border_crop { get; set; }
+        public string Small { get; set; }
+        public string Normal { get; set; }
+        public string LLarge { get; set; }
+        public string PNG { get; set; }
+        public string Art_crop { get; set; }
+        public string Border_crop { get; set; }
     }
 }

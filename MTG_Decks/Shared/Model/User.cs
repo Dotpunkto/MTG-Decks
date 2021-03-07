@@ -7,7 +7,7 @@ namespace MTG_Decks.Shared.Model
 {
     public class User
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         [Required]
         public string UserName { get; set; }
@@ -23,7 +23,7 @@ namespace MTG_Decks.Shared.Model
 
         [Required]
         [EmailAddress]
-        public string mail { get; set; }
+        public string Mail { get; set; }
 
         [JsonIgnore]
         public string Role { get; set; }

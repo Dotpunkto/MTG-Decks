@@ -1,18 +1,39 @@
 ﻿@page "/CardList"
 @using MTG_Decks.Shared.Model
 @inject HttpClient Http
+@using Sve.Blazor.InfiniteScroll.Components;
 
 <h3>Component1</h3>
 
-<button @onclick="@test">test</button>
+<div class="scroll">
+        @if (response != null)
+        {
+            <InfiniteScroll ObserverTargetId="observerTarget" ObservableTargetReached="@GetCardList">
+                <ul>
+                    @foreach (var card in response.Data)
+                    {
+                        <li class="list-group-item">@card.CMC</li>
+                    }
+
+                    @*The target element that we observe. Once this is reached the callback will be triggered.*@
+                    <li class="list-group-item" id="observerTarget"></li>
+                </ul>
+            </InfiniteScroll>
+        }
+</div>
 
 @code {
-    public async void test()
-    {
 
-        Console.WriteLine("coucou");
-        Card card = await Http.GetFromJsonAsync<Card>("https://api.magicthegathering.io/v1/cards");
-        Console.WriteLine(card);
+    private Response response = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetCardList();
+    }
+
+    public async Task GetCardList()
+    {
+        response = await Http.GetFromJsonAsync<Response>("https://api.scryfall.com/cards/search?order=cmc&q=c%3Ared+pow%3D3");
     }
 
 }

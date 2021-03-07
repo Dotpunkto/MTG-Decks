@@ -2,10 +2,10 @@ namespace MTG_Decks.Shared.Model
 {
     public class Prices
     {
-        public float usd { get; set; }
-        public float usd_foil { get; set; }
-        public float eur { get; set; }
-        public float eur_foil { get; set; }
-        public float tix { get; set; }
+        public string USD { get; set; }
+        public string Usd_foil { get; set; }
+        public string EUR { get; set; }
+        public string Eur_foil { get; set; }
+        public string TIX { get; set; }
     }
 }
