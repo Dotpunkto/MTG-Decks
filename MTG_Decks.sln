@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.809.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTG_Decks.Server", "MTG_Decks\Server\MTG_Decks.Server.csproj", "{8E8030BA-925A-451B-9E48-93AE149060F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTG_Decks.Server", "MTG_Decks\Server\MTG_Decks.Server.csproj", "{8E8030BA-925A-451B-9E48-93AE149060F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTG_Decks.Client", "MTG_Decks\Client\MTG_Decks.Client.csproj", "{B2BACAD2-446D-4555-8550-743A8FC33CA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTG_Decks.Client", "MTG_Decks\Client\MTG_Decks.Client.csproj", "{B2BACAD2-446D-4555-8550-743A8FC33CA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTG_Decks.Shared", "MTG_Decks\Shared\MTG_Decks.Shared.csproj", "{CCCF01BE-C7BA-453A-BA17-03C64A250DFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTG_Decks.Shared", "MTG_Decks\Shared\MTG_Decks.Shared.csproj", "{CCCF01BE-C7BA-453A-BA17-03C64A250DFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

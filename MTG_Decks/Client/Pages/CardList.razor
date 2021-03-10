@@ -2,29 +2,34 @@
 @using MTG_Decks.Shared.Model
 @inject HttpClient Http
 @using Sve.Blazor.InfiniteScroll.Components;
+@using MTG_Decks.Client.Component;
+@using BlazorPro.Spinkit;
 
-<h3>Component1</h3>
 
-<div class="scroll">
-        @if (response != null)
-        {
-            <InfiniteScroll ObserverTargetId="observerTarget" ObservableTargetReached="@GetCardList">
-                <ul>
-                    @foreach (var card in response.Data)
-                    {
-                        <li class="list-group-item">@card.CMC</li>
-                    }
+<div class="cardScroll">
+    @if (cardlist.Count > 0)
+    {
+        <InfiniteScroll ObserverTargetId="observerTarget" ObservableTargetReached="@GetCardList">
+            @foreach (var card in cardlist)
+            {
+                <CardElement card=@card />
+            }
 
-                    @*The target element that we observe. Once this is reached the callback will be triggered.*@
-                    <li class="list-group-item" id="observerTarget"></li>
-                </ul>
-            </InfiniteScroll>
-        }
+            @if (hasMore == true)
+            {
+                <div class="loading" id="observerTarget">
+                    <Chase />
+                </div>
+            }
+        </InfiniteScroll>
+    }
 </div>
 
 @code {
 
-    private Response response = null;
+    private List<Card> cardlist = new List<Card>();
+    private string url = "https://api.scryfall.com/cards/search?q=color%3C%3DWUBRG";
+    private bool hasMore = true;
 
     protected override async Task OnInitializedAsync()
     {
@@ -33,7 +38,20 @@
 
     public async Task GetCardList()
     {
-        response = await Http.GetFromJsonAsync<Response>("https://api.scryfall.com/cards/search?order=cmc&q=c%3Ared+pow%3D3");
+        if (hasMore == true)
+        {
+            Response response = await Http.GetFromJsonAsync<Response>(url);
+            if (response.Object == "error")
+            {
+                // TODO: mettre en place une erreur
+            }
+            else
+            {
+                cardlist.AddRange(response.Data);
+                url = response.Next_page;
+                hasMore = response.Has_more;
+            }
+        }
     }
 
 }

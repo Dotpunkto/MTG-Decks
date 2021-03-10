@@ -8,6 +8,7 @@
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'MTG_Decks' " />
   <ItemGroup>
+    <PackageReference Include="BlazorPro.Spinkit" Version="1.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="3.2.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Build" Version="3.2.1" PrivateAssets="all" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="3.2.1" PrivateAssets="all" />
@@ -23,5 +24,13 @@
     <ProjectReference Include="..\Shared\MTG_Decks.Shared.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\BackCard.jpg" />
   </ItemGroup>
 </Project>

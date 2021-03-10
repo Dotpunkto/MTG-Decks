@@ -20,7 +20,7 @@ namespace MTG_Decks.Shared.Model
         public string Scryfall_uri { get; set; }
         public string Layout { get; set; }
         public bool Highres_image { get; set; }
-        public ImageUris Image_uris { get; set; }
+        public ImageUris Image_uris { get; set; } = new ImageUris();
         public string Mana_cost { get; set; }
         public float CMC { get; set; }
         public string Type_line { get; set; }

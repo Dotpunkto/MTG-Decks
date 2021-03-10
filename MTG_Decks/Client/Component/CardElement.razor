@@ -1,0 +1,23 @@
+﻿@using MTG_Decks.Shared.Model
+
+
+<div class="card">
+    <img src=@GetImage() />
+</div>
+
+
+@code {
+
+    [Parameter]
+    public Card card { get; set; }
+
+    public string GetImage()
+    {
+        if (card.Image_uris.Normal != string.Empty)
+        {
+            return card.Image_uris.Normal;
+        }
+        return "images/BackCard.jpg";
+    }
+
+}

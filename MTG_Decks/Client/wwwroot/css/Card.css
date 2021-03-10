@@ -1,0 +1,436 @@
+﻿.scroll-container {
+    flex: 1px;
+    background-Color: #e5e5e5;
+    height: 500px;
+    padding: 4px;
+    border-Radius: 10px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.test {
+    display: flex;
+    flex-direction: row;
+}
+
+.cardList {
+    height: 414px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.deckContainer {
+    height: 500px;
+    width: 200px;
+    margin-left: 10px;
+    background-Color: #e5e5e5;
+    border-radius: 10px;
+}
+
+.globalContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+/* use by ScrollCards & ShowDeck */
+.card {
+    border-radius: 10px;
+    width: 210px;
+    height: 290px;
+}
+
+.card img {
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+}
+
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    border-Radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/* Loading */
+
+.loading {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 210px;
+}
+
+/*  Composant Filter   */
+
+.filter {
+    background-color: #e5e5e5;
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropDown {
+    padding: 5px;
+}
+
+.filter img {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.input {
+    width: auto;
+    margin: 5px;
+}
+
+.filter img {
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.colorActive {
+    transform: scale(1.08);
+    filter: brightness(1);
+    cursor: pointer;
+    transition-duration: 200ms;
+    transition-property: filter, opacity;
+    line-height: 29px !important;
+    width: 30px !important;
+    height: 30px !important;
+    margin-right: 5px !important;
+    padding: 0px !important;
+    border-radius: 50% !important;
+    font-size: 1.4em !important;
+    text-align: center !important
+}
+
+/*  Composant CardListDeck   */
+
+.head {
+    padding: 5px;
+    box-shadow: 0px 10px 10px -10px #666;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.headInput {
+    width: 94%;
+    height: 25px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.elementDeckList {
+    background-color: #e5e5e5;
+    border-radius: 5px;
+    margin: 5px;
+    box-shadow: 1px 2px 3px rgb(63, 63, 63);
+}
+
+.bottom {
+    padding: 5px;
+    height: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+    box-shadow: 0px -10px 10px -10px #666;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+    .bottom p {
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }
+
+.plusButton {
+    border-radius: 20px;
+    height: 25px;
+    width: 25px;
+}
+
+.d-flex p {
+    margin: 0px;
+    padding-top: 8px;
+}
+
+.d-flex a {
+    border-radius: 16px;
+}
+
+    .d-flex a:hover {
+        color: white;
+    }
+
+.d-flex img {
+    width: 15px;
+    height: 15px;
+    margin-top: 13px;
+    margin-left: 1px;
+    margin-right: 1px;
+    border-radius: 16px;
+}
+
+.minus {
+    cursor: pointer;
+}
+
+    .minus:hover {
+        transform: scale(1.08);
+    }
+
+/*  Srcollbar   */
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #a0a0a0;
+    border-radius: 10px;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #6d6d6d;
+    }
+
+/*  Composant Decks   */
+
+.deckScroll {
+    height: 500px;
+    width: 100%;
+    background-Color: #e5e5e5;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    overflow: auto;
+    overflow-x: hidden;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.deckListContainer {
+    /*background-color: teal;*/
+    border-radius: 5px;
+    width: 100px;
+    height: 100px;
+}
+
+.imageContainer {
+    width: 253px;
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background-color: #4a5252;
+}
+
+.deckImage {
+    width: 90px;
+    height: auto;
+}
+
+.deckCard {
+    text-align: center;
+    width: 255px;
+    height: 215px;
+}
+
+/*  Composant ShowDeck   */
+
+.cardScroll {
+    height: 865px;
+    width: 100%;
+    background-Color: #e5e5e5;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: auto;
+    overflow-x: hidden;
+    padding: 5px;
+}
+
+.showDeckContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.deckState {
+    background-Color: #e5e5e5;
+    border-radius: 10px;
+}
+
+/*  Composant ModalCard   */
+
+.showContainer {
+    /* background-color: teal; */
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 185%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.3rem;
+    outline: 0;
+}
+
+.modal-dialog {
+    margin-right: 40%;
+    margin-left: 18%;
+}
+
+.sowCardImg {
+    width: 210px;
+    height: 290px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.showCardStat {
+    background-color: #e5e5e5;
+    border-radius: 10px;
+    margin-right: 0px;
+    margin-left: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
+    display: flex;
+}
+
+    .showCardStat img {
+        width: 20px;
+        height: 20px;
+        border-radius: 16px;
+        margin: auto;
+        margin-left: 3px;
+    }
+
+.nameMana p {
+    margin: 0px;
+    padding-top: 0px;
+}
+
+.topShowContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.bottomShowContainer {
+    background-color: #e5e5e5;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.nameMana {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+/*  On card   */
+
+.cardInfoContainer {
+    position: relative;
+}
+
+.cardInfoBackgroud {
+    z-index: 2;
+    width: 19px;
+    height: 19px;
+    border-radius: 100%;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+
+
+.cardInfo {
+    border-radius: 100px;
+    width: 21px;
+    height: 21px;
+    margin-left: -1px;
+    border-radius: 10%;
+    margin-top: -10px;
+    cursor: pointer;
+}
+
+/*  On card   */
+
+.alert {
+    padding: 5px;
+}
+
+.creationAlert {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/*  Nav bar   */
+
+.navLink:hover {
+    text-decoration: none;
+}
+
+/*  Home   */
+
+.containerDescritpion {
+    display: flex;
+    justify-content: center;
+}
+
+.homeImage {
+    height: 195px;
+}
+
+/*  CreateDeck component   */
+
+.toggleButton {
+    display: none;
+}
+
+.toggleDeckList {
+    display: block;
+}
+
+@media screen and (max-width: 770px) {
+    .toggleButton {
+        display: block;
+    }
+
+    .toggleDeckList {
+        display: none;
+    }
+
+    .deckContainer {
+        z-index: 3;
+        position: absolute;
+        right: 9px;
+        box-shadow: -1px 4px 8px 2px #868181;
+    }
+}
