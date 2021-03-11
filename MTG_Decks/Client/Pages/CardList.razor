@@ -7,51 +7,53 @@
 
 
 <div class="cardScroll">
-    @if (cardlist.Count > 0)
-    {
-        <InfiniteScroll ObserverTargetId="observerTarget" ObservableTargetReached="@GetCardList">
-            @foreach (var card in cardlist)
-            {
-                <CardElement card=@card />
-            }
+	@if (cardlist.Count > 0)
+	{
+		<InfiniteScroll ObserverTargetId="observerTarget" ObservableTargetReached="@GetCardList">
+			@foreach (var card in cardlist)
+			{
+				<CardElement card=@card />
+			}
 
-            @if (hasMore == true)
-            {
-                <div class="loading" id="observerTarget">
-                    <Chase />
-                </div>
-            }
-        </InfiniteScroll>
-    }
+			@if (hasMore == true)
+			{
+				<div class="loading" id="observerTarget">
+					<Chase />
+				</div>
+			}
+		</InfiniteScroll>
+	}
 </div>
+
+<Filter></Filter>
 
 @code {
 
-    private List<Card> cardlist = new List<Card>();
-    private string url = "https://api.scryfall.com/cards/search?q=color%3C%3DWUBRG";
-    private bool hasMore = true;
+	private List<Card> cardlist = new List<Card>();
+	private string url = "https://api.scryfall.com/cards/search?q=color%3C%3DWUBRG";
+	private bool hasMore = true;
 
-    protected override async Task OnInitializedAsync()
-    {
-        await GetCardList();
-    }
+	protected override async Task OnInitializedAsync()
+	{
+		await GetCardList();
+	}
 
-    public async Task GetCardList()
-    {
-        if (hasMore == true)
-        {
-            Response response = await Http.GetFromJsonAsync<Response>(url);
-            if (response.Object == "error")
-            {
-                // TODO: mettre en place une erreur
-            }
-            else
-            {
-                cardlist.AddRange(response.Data);
-                url = response.Next_page;
-                hasMore = response.Has_more;
-            }
-        }
-    }
+	public async Task GetCardList()
+	{
+		if (hasMore == true)
+		{
+			Response response = await Http.GetFromJsonAsync<Response>(url);
+			if (response.Object == "error")
+			{
+				// TODO: mettre en place une erreur
+			}
+			else
+			{
+				cardlist.AddRange(response.Data);
+				url = response.Next_page;
+				hasMore = response.Has_more;
+			}
+		}
+	}
 
 }

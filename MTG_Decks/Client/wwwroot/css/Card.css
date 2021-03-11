@@ -57,13 +57,19 @@
 /* Loading */
 
 .loading {
-    margin-top: 10px;
-    margin-bottom: 10px;
     width: 210px;
+    display: flex;
+    justify-content: center;
+    height: 290px;
+}
+
+.sk-chase {
+    margin-top: auto;
+    margin-bottom: auto;
+}
 }
 
 /*  Composant Filter   */
-
 .filter {
     background-color: #e5e5e5;
     border-radius: 10px;
