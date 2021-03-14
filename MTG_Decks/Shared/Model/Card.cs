@@ -29,7 +29,7 @@ namespace MTG_Decks.Shared.Model
         public string Toughness { get; set; }
         public List<string> Colors { get; set; }
         public List<string> Color_identity { get; set; }
-        public List<string> Keywords { get; set; }// TODO
+        public List<string> Keywords { get; set; }
         public Legalities Legalities { get; set; }
         public List<string> Games { get; set; }
         public bool Reserved { get; set; }

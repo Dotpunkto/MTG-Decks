@@ -1,32 +1,37 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <RazorLangVersion>3.0</RazorLangVersion>
-    <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <RazorLangVersion>3.0</RazorLangVersion>
+        <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
+    </PropertyGroup>
 
-  <PropertyGroup Condition=" '$(RunConfiguration)' == 'MTG_Decks' " />
-  <ItemGroup>
-    <PackageReference Include="BlazorPro.Spinkit" Version="1.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="3.2.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Build" Version="3.2.1" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="3.2.1" PrivateAssets="all" />
-    <PackageReference Include="Sve.Blazor.InfiniteScroll" Version="1.0.0-alpha" />
-    <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<!-- extends watching group to include *.razor files -->
+		<Watch Include="**\*.razor" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
-  </ItemGroup>
+    <PropertyGroup Condition=" '$(RunConfiguration)' == 'MTG_Decks' " />
+    <ItemGroup>
+        <PackageReference Include="BlazorPro.Spinkit" Version="1.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="3.2.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Build" Version="3.2.1" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="3.2.1" PrivateAssets="all" />
+        <PackageReference Include="Sve.Blazor.InfiniteScroll" Version="1.0.0-alpha" />
+        <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
+    </ItemGroup>
 
-  <ItemGroup>
+    <ItemGroup>
+        <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
+    </ItemGroup>
+
+    <ItemGroup>
     <ProjectReference Include="..\Shared\MTG_Decks.Shared.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+        <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
-  </ItemGroup>
+    </ItemGroup>
 
-  <ItemGroup>
-    <None Include="wwwroot\images\BackCard.jpg" />
-  </ItemGroup>
+    <ItemGroup>
+        <None Include="wwwroot\images\BackCard.jpg" />
+    </ItemGroup>
 </Project>

@@ -70,15 +70,31 @@
 }
 
 /*  Composant Filter   */
+
+.filter-container {
+    margin-top: 20px;
+}
+
 .filter {
+    margin-left: auto;
+    margin-right: auto;
     background-color: #e5e5e5;
     border-radius: 10px;
-    padding: 5px;
     margin-top: 10px;
     display: flex;
+    flex-direction: column;
+}
+
+.filterRow {
+    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    margin: 5px;
+}
+
+.filterInput {
+    border: none;
+    border-bottom: 1px solid;
 }
 
 .dropDown {
@@ -262,7 +278,7 @@
 /*  Composant ShowDeck   */
 
 .cardScroll {
-    height: 865px;
+    height: 700px;
     width: 100%;
     background-Color: #e5e5e5;
     border-radius: 10px;
@@ -328,13 +344,13 @@
     display: flex;
 }
 
-    .showCardStat img {
-        width: 20px;
-        height: 20px;
-        border-radius: 16px;
-        margin: auto;
-        margin-left: 3px;
-    }
+.showCardStat img {
+    width: 20px;
+    height: 20px;
+    border-radius: 16px;
+    margin: auto;
+    margin-left: 3px;
+}
 
 .nameMana p {
     margin: 0px;
@@ -422,6 +438,33 @@
 
 .toggleDeckList {
     display: block;
+}
+
+/* Dropdown */
+
+.dropDown {
+    width: fit-content;
+    height: fit-content;
+}
+
+.dropdownList {
+    background-color: white;
+    list-style: none;
+    padding: 0px;
+    border: 1px solid;
+    text-align: center;
+    position: absolute;
+    width: fit-content;
+}
+
+.dropdownList li:hover {
+    background-color: #e5e5e5;
+}
+
+.dropdownButton {
+    border: none;
+    background-color: #a0a0a000;
+    border-bottom: 1px solid;
 }
 
 @media screen and (max-width: 770px) {

@@ -1,0 +1,33 @@
+﻿
+<div class="dropDown">
+	<button class="dropdownButton" @onclick="Toggle">@TextButton</button>
+
+	@if (Collapse == true)
+	{
+		<ul class="dropdownList">
+			@foreach(var item in DropDownContent)
+			{
+				<li @onclick="() => Select(item.Value)">@item.Key</li>
+			}
+		</ul>
+	}
+</div>
+
+@code {
+
+    [Parameter]
+    public Dictionary<string, string> DropDownContent { get; set; }
+    public bool Collapse = false;
+    public string TextButton = "coucou";
+
+    public void Toggle()
+    {
+        Collapse = !Collapse;
+    }
+
+    public void Select(string e)
+    {
+        TextButton = e;
+    }
+
+}

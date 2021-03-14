@@ -1,16 +1,38 @@
 ﻿
+<div class="filter-container">
+    <div class="filter">
+        <div class="filterRow">
+            <a href="#"><img src="images/black.png" /></a>
+            <a href="#"><img src="images/white.png" /></a>
+            <a href="#"><img src="images/blue.png" /></a>
+            <a href="#"><img src="images/green.png" /></a>
+            <a href="#"><img src="images/red.png" /></a>
+            <a href="#"><img src="images/colorLess.png" /></a>
 
-<div>
-    <div>
-        <a href="#"><img src="images/black.png" /></a>
-        <a href="#"><img src="images/white.png" /></a>
-        <a href="#"><img src="images/blue.png" /></a>
-        <a href="#"><img src="images/green.png" /></a>
-        <a href="#"><img src="images/red.png" /></a>
-        <a href="#"><img src="images/colorLess.png" /></a>
+            <input id="CardName" class="filterInput" @bind="research" />
+
+            <DropDown></DropDown>
+            <DropDown></DropDown>
+            <DropDown></DropDown>
+        </div>
+        <div class="filterRow">
+            <DropDown></DropDown>
+            <DropDown></DropDown>
+            <DropDown></DropDown>
+            <DropDown></DropDown>
+            <DropDown></DropDown>
+            <DropDown></DropDown>
+            <DropDown></DropDown>
+        </div>
     </div>
 </div>
 
 @code {
 
+    public string research { get; set; }
+
+    public void test()
+    {
+        Console.WriteLine(research);
+    }
 }
