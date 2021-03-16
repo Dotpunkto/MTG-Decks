@@ -1,6 +1,8 @@
-﻿
+﻿@inject HttpClient Http
+@using MTG_Decks.Shared.Model;
+
 <div class="filter-container">
-    <div class="filter">
+	<div class="filter">
         <div class="filterRow">
             <a href="#"><img src="images/black.png" /></a>
             <a href="#"><img src="images/white.png" /></a>
@@ -10,29 +12,41 @@
             <a href="#"><img src="images/colorLess.png" /></a>
 
             <input id="CardName" class="filterInput" @bind="research" />
+            @if (Types != null)
+            {
+                <DropDown DropDownContent="@Types"></DropDown>
+                <DropDown DropDownContent="@Types"></DropDown>
+            }
 
-            <DropDown></DropDown>
-            <DropDown></DropDown>
-            <DropDown></DropDown>
+            @*<DropDown></DropDown>
+        <DropDown></DropDown>*@
         </div>
-        <div class="filterRow">
-            <DropDown></DropDown>
-            <DropDown></DropDown>
-            <DropDown></DropDown>
-            <DropDown></DropDown>
-            <DropDown></DropDown>
-            <DropDown></DropDown>
-            <DropDown></DropDown>
-        </div>
-    </div>
+		<div class="filterRow">
+			@*<DropDown></DropDown>
+			<DropDown></DropDown>
+			<DropDown></DropDown>
+			<DropDown></DropDown>
+			<DropDown></DropDown>
+			<DropDown></DropDown>
+			<DropDown></DropDown>*@
+		</div>
+	</div>
 </div>
 
 @code {
 
     public string research { get; set; }
+    public List<string> Types = null;
 
-    public void test()
+    protected override async Task OnInitializedAsync()
     {
-        Console.WriteLine(research);
+        await fetch();
+    }
+
+    public async Task fetch()
+    {
+        Console.WriteLine("Test");
+        ResponseCardType response = await Http.GetFromJsonAsync<ResponseCardType>("https://api.scryfall.com/catalog/creature-types");
+        Types = response.Data;
     }
 }

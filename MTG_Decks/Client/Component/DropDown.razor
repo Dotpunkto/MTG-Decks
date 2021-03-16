@@ -7,7 +7,7 @@
 		<ul class="dropdownList">
 			@foreach(var item in DropDownContent)
 			{
-				<li @onclick="() => Select(item.Value)">@item.Key</li>
+				<li @onclick="() => Select(item)">@item</li>
 			}
 		</ul>
 	}
@@ -16,7 +16,7 @@
 @code {
 
     [Parameter]
-    public Dictionary<string, string> DropDownContent { get; set; }
+    public List<string> DropDownContent { get; set; }
     public bool Collapse = false;
     public string TextButton = "coucou";
 
@@ -28,6 +28,7 @@
     public void Select(string e)
     {
         TextButton = e;
+        Collapse = false;
     }
 
 }
