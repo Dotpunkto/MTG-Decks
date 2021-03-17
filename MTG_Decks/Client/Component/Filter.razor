@@ -1,5 +1,5 @@
 ﻿@inject HttpClient Http
-@using MTG_Decks.Shared.Model
+@using MTG_Decks.Shared.Model;
 
 <div class="filter-container">
     <div class="filter">
@@ -47,10 +47,6 @@
     {
         string url = $"https://api.scryfall.com/cards/autocomplete?q={e.Value}";
         AutocompleteResponse response = await Http.GetFromJsonAsync<AutocompleteResponse>(url);
-        if (response)
-        {
-
-        }
         autocompleteList = response.Data;
     }
 }
