@@ -467,6 +467,20 @@
     border-bottom: 1px solid;
 }
 
+/* Autocomplete */
+
+.autocomplete-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.suggest-container {
+    overflow: auto;
+    height: 100px;
+    position: absolute;
+
+}
+
 @media screen and (max-width: 770px) {
     .toggleButton {
         display: block;
