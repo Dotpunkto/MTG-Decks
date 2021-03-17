@@ -12,21 +12,21 @@
             <a href="#"><img src="images/colorLess.png" /></a>
 
             <div class="autocomplete-container">
+                <input id="CardName" class="filterInput" value="@researchValue" @oninput="Research" />
                 @if (autocompleteList.Count > 0)
                 {
-                    <div class="suggest-container">
+                    <ul class="suggest-container">
                         @foreach (var item in autocompleteList)
                         {
-                            <p>@item</p>
+                            <li @onclick="() => Select(item)">@item</li>
                         }
-                    </div>
+                    </ul>
                 }
-                <input id="CardName" class="filterInput" @oninput="Research" />
             </div>
 
+            <DropDown DropDownContent="test"></DropDown>
             @*<DropDown></DropDown>
-                <DropDown></DropDown>
-                <DropDown></DropDown>*@
+        <DropDown></DropDown>*@
         </div>
         <div class="filterRow">
             @*<DropDown></DropDown>
@@ -42,11 +42,18 @@
 
 @code {
     public List<string> autocompleteList = new List<string>();
+    public string researchValue = "";
+    public List<string> test = new List<string> { "zzz", "zzz" };
 
     public async Task Research(ChangeEventArgs e)
     {
         string url = $"https://api.scryfall.com/cards/autocomplete?q={e.Value}";
         AutocompleteResponse response = await Http.GetFromJsonAsync<AutocompleteResponse>(url);
         autocompleteList = response.Data;
+    }
+
+    public void Select(string e)
+    {
+        researchValue = e;
     }
 }
