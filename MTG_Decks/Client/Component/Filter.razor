@@ -2,57 +2,34 @@
 @using MTG_Decks.Shared.Model;
 
 <div class="filter-container">
-    <div class="filter">
-        <div class="filterRow">
-            <a href="#"><img src="images/black.png" /></a>
-            <a href="#"><img src="images/white.png" /></a>
-            <a href="#"><img src="images/blue.png" /></a>
-            <a href="#"><img src="images/green.png" /></a>
-            <a href="#"><img src="images/red.png" /></a>
-            <a href="#"><img src="images/colorLess.png" /></a>
+	<div class="filter">
+		<div class="filterRow">
+			<a href="#"><img src="images/black.png" /></a>
+			<a href="#"><img src="images/white.png" /></a>
+			<a href="#"><img src="images/blue.png" /></a>
+			<a href="#"><img src="images/green.png" /></a>
+			<a href="#"><img src="images/red.png" /></a>
+			<a href="#"><img src="images/colorLess.png" /></a>
 
-            <div class="autocomplete-container">
-                <input id="CardName" list="NameList" class="filterInput" value="@researchValue" @oninput="Research" />
-                @if (autocompleteList.Count > 0)
-                {
-                    <datalist id="NameList">
-                        @foreach (var item in autocompleteList)
-                        {
-                            <option @onclick="() => Select(item)">@item</option>
-                        }
-                    </datalist>
-                }
-            </div>
+			<Search></Search>
 
-            <DropDown url="https://api.scryfall.com/catalog/creature-types"></DropDown>
-            @*<DropDown></DropDown>
-                <DropDown></DropDown>*@
-        </div>
-        <div class="filterRow">
-            @*<DropDown></DropDown>
-                <DropDown></DropDown>
-                <DropDown></DropDown>
-                <DropDown></DropDown>
-                <DropDown></DropDown>
-                <DropDown></DropDown>
-                <DropDown></DropDown>*@
-        </div>
-    </div>
+			<DropDown url="https://api.scryfall.com/catalog/creature-types"></DropDown>
+			@*<DropDown></DropDown>
+				<DropDown></DropDown>*@
+		</div>
+		<div class="filterRow">
+			@*<DropDown></DropDown>
+				<DropDown></DropDown>
+				<DropDown></DropDown>
+				<DropDown></DropDown>
+				<DropDown></DropDown>
+				<DropDown></DropDown>
+				<DropDown></DropDown>*@
+		</div>
+	</div>
 </div>
 
 @code {
-    public List<string> autocompleteList = new List<string>();
-    public string researchValue = "";
+	
 
-    public async Task Research(ChangeEventArgs e)
-    {
-        string url = $"https://api.scryfall.com/cards/autocomplete?q={e.Value}";
-        AutocompleteResponse response = await Http.GetFromJsonAsync<AutocompleteResponse>(url);
-        autocompleteList = response.Data;
-    }
-
-    public void Select(string e)
-    {
-        researchValue = e;
-    }
 }
