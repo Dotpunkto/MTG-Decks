@@ -1,34 +1,29 @@
-﻿
-<div class="dropDown">
-	<button class="dropdownButton" @onclick="Toggle">@TextButton</button>
+﻿@inject HttpClient Http
+@using MTG_Decks.Shared.Model;
 
-	@if (Collapse == true)
-	{
-		<ul class="dropdownList">
-			@foreach(var item in DropDownContent)
-			{
-				<li @onclick="() => Select(item)">@item</li>
-			}
-		</ul>
-	}
-</div>
+<select>
+    @if (DropDownContent != null)
+    {
+        @foreach (var item in DropDownContent)
+        {
+            <option>@item</option>
+        }
+    }
+</select>
 
 @code {
-
     [Parameter]
+    public string url { get; set; }
     public List<string> DropDownContent { get; set; }
-    public bool Collapse = false;
-    public string TextButton = "coucou";
 
-    public void Toggle()
+    protected override async Task OnInitializedAsync()
     {
-        Collapse = !Collapse;
+        await GetData();
     }
 
-    public void Select(string e)
+    public async Task GetData()
     {
-        TextButton = e;
-        Collapse = false;
+        AutocompleteResponse response = await Http.GetFromJsonAsync<AutocompleteResponse>(url);
+        DropDownContent = response.Data;
     }
-
 }
