@@ -14,11 +14,11 @@
     <PropertyGroup Condition=" '$(RunConfiguration)' == 'MTG_Decks' " />
 
     <ItemGroup>
-      <Content Remove="Component\Search.razor" />
+      <Content Remove="Component\NameSearch.razor" />
     </ItemGroup>
 
     <ItemGroup>
-      <Watch Remove="Component\Search.razor" />
+      <Watch Remove="Component\NameSearch.razor" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="BlazorPro.Spinkit" Version="1.2.0" />
@@ -40,7 +40,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Include="Component\Search.razor" />
+        <None Include="Component\NameSearch.razor" />
         <None Include="wwwroot\images\BackCard.jpg" />
     </ItemGroup>
 </Project>
