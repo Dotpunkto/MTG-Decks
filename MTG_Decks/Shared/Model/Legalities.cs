@@ -2,6 +2,7 @@ namespace MTG_Decks.Shared.Model
 {
     public class Legalities
     {
+        public int ID { get; set; }
         public string Standard { get; set; }
         public string Future { get; set; }
         public string Historic { get; set; }

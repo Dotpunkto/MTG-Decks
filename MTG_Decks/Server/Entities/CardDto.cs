@@ -1,16 +1,16 @@
+using MTG_Decks.Shared.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace MTG_Decks.Shared.Model
+namespace MTG_Decks.Entities
 {
-	public class Card
+	public class CardDto
 	{
-		[Key]
-		public string ID { get; set; }
+		public int ID { get; set; }
 		public string Object { get; set; }
 		public string Oracle_id { get; set; }
-		public List<int> Multiverse_ids { get; set; }
+		public List<MultiverseIDS> Multiverse_ids { get; set; }
 		public int Mtgo_id { get; set; }
 		public int Mtgo_foil_id { get; set; }
 		public int Tcgplayer_id { get; set; }
@@ -29,12 +29,12 @@ namespace MTG_Decks.Shared.Model
 		public string Oracle_text { get; set; }
 		public string Power { get; set; }
 		public string Toughness { get; set; }
-		public List<string> Colors { get; set; }
-		public List<string> Color_identity { get; set; }
-		public List<string> Keywords { get; set; }
-		public List<string> Produced_mana { get; set; }
+		public List<Colors> Colors { get; set; }
+		public List<ColorIdentity> Color_identity { get; set; }
+		public List<Keywords> Keywords { get; set; }
+		public List<ProducedMana> Produced_mana { get; set; }
 		public Legalities Legalities { get; set; }
-		public List<string> Games { get; set; }
+		public List<Games> Games { get; set; }
 		public bool Reserved { get; set; }
 		public bool Foil { get; set; }
 		public bool Nonfoil { get; set; }
@@ -56,7 +56,7 @@ namespace MTG_Decks.Shared.Model
 		public string Flavor_text { get; set; }
 		public string Card_back_id { get; set; }
 		public string Artist { get; set; }
-		public List<string> Artist_ids { get; set; }
+		public List<ArtistIDS> Artist_ids { get; set; }
 		public string Illustration_id { get; set; }
 		public string Border_color { get; set; }
 		public string Frame { get; set; }

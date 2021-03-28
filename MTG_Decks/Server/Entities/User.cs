@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
 
-namespace MTG_Decks.Shared.Model
+namespace MTG_Decks.Entities
 {
     public class User
     {
